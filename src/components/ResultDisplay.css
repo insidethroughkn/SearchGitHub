@@ -1,0 +1,57 @@
+.content{
+    color:field-text;
+    font-size: 15pt;
+    display: flex;
+    justify-content: center;
+}
+
+.contentWrapper{
+    width: 80vw;
+}
+
+table{
+    border-collapse:collapse;
+    border:1px solid #FF0000;
+    width: 100%;
+}
+
+table th{
+    font-family: Arial ;
+    font-weight:500;
+    font-size: 16pt;
+}
+
+table td, table th{
+    border: solid 1px black;
+    padding: 0.5em 0.5em; 
+}
+
+.pager{
+    font-size: 12pt;
+    margin-top:8pt;
+}
+
+.pager .prev-next{
+    display: inline-flex;
+    justify-content: space-between;
+    width: 120pt;
+}
+
+.pager .to-page{
+    margin-left: 20pt;
+    margin-right: 10pt;
+}
+
+.pager .to-page>input{
+    margin-left: 8px;
+    width: 20pt;
+}
+
+.pager button {
+    margin-left: 5pt;
+    margin-right: 5pt;
+}
+
+.pager .current-page{
+    margin-right: 30pt;
+}
