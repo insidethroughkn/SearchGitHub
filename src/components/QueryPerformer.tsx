@@ -24,8 +24,12 @@ const QueryPerformer : React.FC<Props> = ({saveError, refreshBody, setPagerInfo,
     }
   }, [gotoPage])
 
-  const goSearch = (e?: React.FormEvent<HTMLButtonElement> ) => {
-    SearchService("repositories", query, gotoPage).then(
+  const goSearch = (queryText?: string) => {
+    if(queryText){
+      setPagerInfo({snapshotPage:1, lastPage: null});
+      gotoPage = 1;
+    }
+    SearchService("repositories", queryText || query, gotoPage).then(
         (response) => {
             saveError('')
             refreshBody(response.body);
@@ -63,12 +67,22 @@ const QueryPerformer : React.FC<Props> = ({saveError, refreshBody, setPagerInfo,
 
     return totalPages;
   }
+ 
+  const handleKeyPress = (e : React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter'){
+      e.currentTarget.blur();
+      var inputText = e.currentTarget.value;
+      e.preventDefault();
+      goSearch(inputText);
+    }
+ }
 
   return (
     <div className='search-query'>
         <form>
-            <input type="input" placeholder='query' onBlur={(e) => setQuery(e.target.value)}></input>
-            <button className="btn-go" type="button" onClick={goSearch}>Go</button>
+            <input type="input" placeholder='query' onBlur={(e) => setQuery(e.target.value)}
+               onKeyDown={(e) => handleKeyPress(e)}></input>
+            <button className="btn-go" type="button" onClick={(e) => goSearch()}>Go</button>
         </form>
     </div>
   )

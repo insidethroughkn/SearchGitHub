@@ -27,7 +27,13 @@ const Pager = ({pagerModel, setGotoPage}:Props) => {
             pageRef.current.value = "";
         }
     }
-
+  
+    const handleKeyPress = (e : React.KeyboardEvent<HTMLInputElement>) => {
+      if(e.key === 'Enter'){
+        pageRef.current!.blur();
+      }
+   }
+  
   let currentPage : number = pagerModel.snapshotPage;
   let totalPages : number | null = pagerModel.lastPage;
 
@@ -47,7 +53,8 @@ const Pager = ({pagerModel, setGotoPage}:Props) => {
       <span className="to-page">To Page:
         <input type="text" ref = {pageRef}
              onFocus = {clearContent}
-             onBlur = {() => gotoNumber(pageRef.current ? pageRef.current.value : null)} 
+             onBlur = {() => gotoNumber(pageRef.current ? pageRef.current.value : null)}
+             onKeyDown={(e) => handleKeyPress(e)}
         ></input></span>
       <span>Total Page: {totalPages}</span>
     </div>
