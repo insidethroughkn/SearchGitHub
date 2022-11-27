@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {  BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom';
 import _ from 'lodash';
-import SearchWidget from './components/SearchWidget';
+import QueryPerformer from './components/QueryPerformer';
 import ResultDisplay from './components/ResultDisplay';
 import Repository from './models/Repository'
 import AbstractResponse from './models/AbstractResponse';
@@ -17,9 +17,10 @@ const App : React.FC = () => {
 
   return (
         <div className="App">
-          <SearchWidget saveError={setError} refreshBody={setRepoBody} 
+          <h1>GitHub Repositories Search</h1>
+          <QueryPerformer saveError={setError} refreshBody={setRepoBody} 
                         setPagerInfo={setPagerInfo}
-                        gotoPage={gotoPage}></SearchWidget>
+                        gotoPage={gotoPage}></QueryPerformer>
           <ResultDisplay error={error} dataSource={repoBody} pagerModel={pagerInfo} 
                          setGotoPage = {setGotoPage}></ResultDisplay>
         </div>

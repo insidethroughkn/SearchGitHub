@@ -14,7 +14,7 @@ interface Props {
 
 //const queryRef = useRef<HTMLInputElement>(null);
 
-const SearchWidget : React.FC<Props> = ({saveError, refreshBody, setPagerInfo, gotoPage} : Props) => {
+const QueryPerformer : React.FC<Props> = ({saveError, refreshBody, setPagerInfo, gotoPage} : Props) => {
   const [query, setQuery] = useState('');
   const [lastTimePage, setLastTimePage] = useState(0);
 
@@ -74,4 +74,4 @@ const SearchWidget : React.FC<Props> = ({saveError, refreshBody, setPagerInfo, g
   )
 }
 
-export default SearchWidget
+export default QueryPerformer

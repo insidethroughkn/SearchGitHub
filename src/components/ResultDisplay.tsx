@@ -18,7 +18,7 @@ const ResultDisplay : React.FC<Props> = ({error, dataSource, pagerModel, setGoto
   return (
     <div className='content'>
         <div className='contentWrapper'>
-            { error ? <span className="error">{error}</span> : 
+            { error ? <span className="error">error found&nbsp;!&nbsp;message&nbsp;: {error}</span> : 
             <ContentTable columnHeaders={headers} data={dataSource}></ContentTable>}
             <Pager pagerModel={pagerModel} setGotoPage={setGotoPage}></Pager>
         </div>
