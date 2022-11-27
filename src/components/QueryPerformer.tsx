@@ -19,7 +19,7 @@ const QueryPerformer : React.FC<Props> = ({saveError, refreshBody, setPagerInfo,
   const [lastTimePage, setLastTimePage] = useState(0);
 
   useEffect(() => {
-    if(gotoPage != lastTimePage){
+    if(query && gotoPage != lastTimePage){
       goSearch();
     }
   }, [gotoPage])
