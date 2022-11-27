@@ -53,7 +53,7 @@ const Pager = ({pagerModel, setGotoPage}:Props) => {
       <span className="to-page">To Page:
         <input type="text" ref = {pageRef}
              onFocus = {clearContent}
-             onBlur = {() => gotoNumber(pageRef.current ? pageRef.current.value : null)}
+             onBlur = {() => gotoNumber(pageRef.current!.value)}
              onKeyDown={(e) => handleKeyPress(e)}
         ></input></span>
       <span>Total Page: {totalPages}</span>

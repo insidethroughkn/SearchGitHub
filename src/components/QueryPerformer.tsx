@@ -12,11 +12,10 @@ interface Props {
     gotoPage: number
 }
 
-//const queryRef = useRef<HTMLInputElement>(null);
-
 const QueryPerformer : React.FC<Props> = ({saveError, refreshBody, setPagerInfo, gotoPage} : Props) => {
   const [query, setQuery] = useState('');
   const [lastTimePage, setLastTimePage] = useState(0);
+  const queryRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if(query && gotoPage != lastTimePage){
@@ -81,8 +80,8 @@ const QueryPerformer : React.FC<Props> = ({saveError, refreshBody, setPagerInfo,
     <div className='search-query'>
         <form>
             <input type="input" placeholder='query' onBlur={(e) => setQuery(e.target.value)}
-               onKeyDown={(e) => handleKeyPress(e)}></input>
-            <button className="btn-go" type="button" onClick={(e) => goSearch()}>Go</button>
+               onKeyDown={(e) => handleKeyPress(e)} ref={queryRef}></input>
+            <button className="btn-go" type="button" onClick={(e) => goSearch(queryRef.current!.value)}>Go</button>
         </form>
     </div>
   )
