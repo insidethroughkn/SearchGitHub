@@ -11,7 +11,19 @@
   color: #000000;
   font-family: 'arial';
   font-weight: bold;
-}				 
+}
+
+nav > ul {
+  display: inline-flex;
+  justify-content: center;
+  list-style-type:none;
+}
+
+nav > ul > li{
+  margin-left: 12pt;
+  margin-right: 10pt;
+}
+
 .error {
   color: red;
   font-weight:bold
