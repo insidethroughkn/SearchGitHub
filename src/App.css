@@ -6,11 +6,12 @@
   color:red;
   font-family: 'roboto', sans-serif;
 }
+
 .App h1{
   color: #000000;
   font-family: 'arial';
   font-weight: bold;
-}
+}				 
 .error {
   color: red;
   font-weight:bold
